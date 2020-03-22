@@ -146,7 +146,7 @@ struct RightShoes: Shape {
 struct Tshirt1: Shape {
     func path(in rect: CGRect) -> Path {
         Path{ (path) in
-            path.move(to: CGPoint(x: 173, y:450))
+            path.move(to: CGPoint(x: 170, y:480))
             path.addLine(to: CGPoint(x: 105, y:568))
             path.addLine(to: CGPoint(x: 115, y:580))
             path.addLine(to: CGPoint(x: 155, y:555))
@@ -162,7 +162,7 @@ struct Tshirt2: Shape {
             path.addQuadCurve(to: CGPoint(x: 155, y:630), control: CGPoint(x:135, y:628))
             path.addLine(to: CGPoint(x: 357, y:633))
             path.addQuadCurve(to: CGPoint(x: 355, y:555), control: CGPoint(x:365, y:625))
-            path.addLine(to: CGPoint(x: 357, y:457))
+            path.addLine(to: CGPoint(x: 357, y:487))
         }
     }
 }
@@ -170,7 +170,7 @@ struct Tshirt2: Shape {
 struct Tshirt3: Shape {
     func path(in rect: CGRect) -> Path {
         Path{ (path) in
-            path.move(to: CGPoint(x: 353, y:460))
+            path.move(to: CGPoint(x: 355, y:485))
             path.addQuadCurve(to: CGPoint(x: 410, y:580), control: CGPoint(x:395, y:530))
             path.addLine(to: CGPoint(x: 390, y:595))
             path.addLine(to: CGPoint(x: 340, y:535))
@@ -277,7 +277,7 @@ struct limbs: View {
                 LeftSock()
                     .fill(Color(red: 249/255, green: 249/255, blue: 249/255))
                 LeftSock()
-                    .stroke(lineWidth: 5)
+                    .stroke(style: StrokeStyle(lineWidth: 5, lineJoin: .round))
                 
                 // 腿
                 LeftLeg()
@@ -299,7 +299,7 @@ struct limbs: View {
                 RightSock()
                     .fill(Color(red: 249/255, green: 249/255, blue: 249/255))
                 RightSock()
-                    .stroke(lineWidth: 5)
+                    .stroke(style: StrokeStyle(lineWidth: 5, lineJoin: .round))
                 
                 // 腿
                 RightLeg()
@@ -342,25 +342,35 @@ struct Head: View {
                     
                 }
                 
+                // 腮紅
+                Path{ (path) in
+                    path.move(to: CGPoint(x: 335, y:455))
+                    path.addLine(to: CGPoint(x:320, y:458))
+                }
+            .stroke(style: StrokeStyle(lineWidth: 5, dash: [4]))
+                
+                
+                
+                
             }
             
             Group{
                 
                 // 眉毛
                 EyeBrow()
-                    .stroke(lineWidth: 22)
+                    .stroke(style: StrokeStyle(lineWidth: 22, lineCap: .round))
                 
                 EyeBrow()
-                    .stroke(lineWidth: 22)
+                    .stroke(style: StrokeStyle(lineWidth: 22, lineCap: .round))
                     .position(x:295, y:410)
                     .rotationEffect(.degrees(5))
                 
                 // 眼皮
                 EyeBrow2()
-                    .stroke(lineWidth: 3)
+                    .stroke(style: StrokeStyle(lineWidth: 3, lineCap: .round))
                 
                 EyeBrow2()
-                    .stroke(lineWidth: 3)
+                    .stroke(style: StrokeStyle(lineWidth: 3, lineCap: .round))
                     .position(x:295, y:410)
                     .rotationEffect(.degrees(5))
                 
@@ -397,17 +407,17 @@ struct Wear: View {
                 Tshirt1()
                     .fill(Color(red: 224/255, green: 65/255, blue: 72/255))
                 Tshirt1()
-                    .stroke(lineWidth: 5)
+                    .stroke(style: StrokeStyle(lineWidth: 5, lineJoin: .round))
                 
                 Tshirt2()
                     .fill(Color(red: 224/255, green: 65/255, blue: 72/255))
                 Tshirt2()
-                    .stroke(lineWidth: 5)
+                    .stroke(style: StrokeStyle(lineWidth: 5, lineJoin: .round))
                 
                 Tshirt3()
                     .fill(Color(red: 224/255, green: 65/255, blue: 72/255))
                 Tshirt3()
-                    .stroke(lineWidth: 5)
+                    .stroke(style: StrokeStyle(lineWidth: 5, lineJoin: .round))
             }
             
             Group{  //褲子
@@ -415,7 +425,7 @@ struct Wear: View {
                 Pants()
                     .fill(Color(red: 244/255, green: 243/255, blue: 117/255))
                 Pants()
-                    .stroke(lineWidth: 5)
+                    .stroke(style: StrokeStyle(lineWidth: 5, lineJoin: .round))
                 
             }
         }
